@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/back5"
+    android:gravity="center">
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textColor="@color/white"
+        android:textSize="20dp"/>
+
+
+        <TextView
+            android:id="@+id/nomer"
+            android:layout_width="50dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text=""
+            android:textColor="@color/white"
+            android:textSize="25dp" />
+
+
+
+
+
+    <TextView
+        android:id="@+id/ques"
+        android:layout_width="307dp"
+        android:layout_height="92dp"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/txstyle"
+        android:layout_gravity="center" />
+
+
+    <TextView
+        android:layout_marginTop="80dp"
+        android:id="@+id/ans1"
+        android:layout_width="260dp"
+        android:layout_height="55dp"
+        android:background="@drawable/txstyle"
+        android:gravity="center"
+        android:onClick="onClick"
+        android:textColor="@color/white"
+      />
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="50dp" />
+
+    <TextView
+        android:id="@+id/ans2"
+        android:layout_width="260dp"
+        android:layout_height="55dp"
+
+        android:background="@drawable/txstyle"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:onClick="onClick" />
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="50dp" />
+    <TextView
+        android:id="@+id/ans3"
+        android:layout_width="260dp"
+        android:layout_height="55dp"
+        android:textColor="@color/white"
+        android:background="@drawable/txstyle"
+        android:gravity="center"
+        android:onClick="onClick" />
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="50dp" />
+
+    <TextView
+        android:id="@+id/ans4"
+        android:layout_width="260dp"
+        android:layout_height="55dp"
+        android:textColor="@color/white"
+        android:background="@drawable/txstyle"
+        android:gravity="center"
+        android:onClick="onClick" />
+
+
+</LinearLayout>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/dialogfon"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/fragment"
+    android:divider="@color/png"
+    android:foreground="@color/png"
+    android:orientation="vertical"
+    android:scaleType="centerCrop">
+
+    <TextView
+        android:id="@+id/buttonclose"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+
+        android:layout_gravity="right"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:text="X"
+        android:textColor="@color/black"
+
+        android:textStyle="bold" />
+
+
+</LinearLayout>
+
+

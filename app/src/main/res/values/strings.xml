@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Construktor</string>
+    <string name="voprosi">tut nujen otvet</string>
+    <string name="otveti">a tut nujen vopros</string>
+    <string name="remove">Удалить</string>
+    <string name="start">Начать</string>
+    <string name="next">Далее</string>
+    <string name="create">Создать</string>
+    <string name="open">Открыть</string>
+    <string name="ok">Ok</string>
+    <string name="potom">Пройти позже</string>
+    <string name="tablica">Мои тесты</string>
+    <string name="kolvop">кол-во вопросов</string>
+    <string name="nazvanietablici">название теста</string>
+    <string name="time">время в секундах</string>
+
+</resources>
