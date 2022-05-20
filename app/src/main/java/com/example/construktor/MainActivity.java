@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.DialogFragment;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
@@ -13,22 +13,16 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.Toast;
-
-import java.util.HashSet;
 import java.util.Objects;
-import java.util.Set;
-import static com.example.construktor.DataBase.arrQ;
+
+import static com.example.construktor.Activity2.db;
+
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     Button add,open;
-    DialogFragment df;
-    SharedPreferences sp;
-    Set<String> aye;
-    DataBase db;
     SQLiteDatabase dbhelp;
-
     public static int DF_VERSION=0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,21 +32,31 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         w.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         DF_VERSION=1;
         add = findViewById(R.id.button2);
-        add.setOnClickListener(this);
         open = findViewById(R.id.button);
-        df = new DialogFragm();
-        //df.show(getSupportFragmentManager(),"df");
+
+        add.setOnClickListener(this);
         open.setOnClickListener(this);
-      // db = new DataBase(this,7);
-      // dbhelp = db.getReadableDatabase();
-      // dbhelp.delete(DataBase.DATABASE_ANS,null,null);
-      // dbhelp.delete(DataBase.DATABASE_QUES,null,null);
-      // dbhelp.delete(DataBase.DATABASE_NAME,null,null);
 
 
-
-
-
+        try {
+            dbhelp = db.getWritableDatabase();
+            Log.d("tabla1","TABLICA TablNazv");
+            Cursor cur = dbhelp.query(DataBase.DATABASE_NAME,null,null,null,null,null,null,null);
+            logCursor(cur);
+            Log.d("tabla1","------------");
+            Log.d("tabla1","TABLICA TabOtv");
+            cur = dbhelp.query(DataBase.DATABASE_ANS,null,null,null,null,null,null);
+            logCursor(cur);
+            Log.d("tabla1","------------");
+            Log.d("tabla1","TABLICA TabVop");
+            cur = dbhelp.query(DataBase.DATABASE_QUES,null,null,null,null,null,null);
+            logCursor(cur);
+            cur.close();
+            Log.d("tabla1","----------");
+        }catch (NullPointerException e) {
+             Log.d("tabla","aaaaaaaa");
+             db = new DataBase(this,8);
+        }
 
     }
 
@@ -69,41 +73,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
         }
     }
-    public void load(){
-            sp=getPreferences(MODE_PRIVATE);
-            aye = sp.getStringSet("arr",new HashSet<>());
-            try {
-                for(String s:arrQ){
-                    Log.d("ayeQ",s);
-                }
-            }catch (Exception e){
 
+
+    void logCursor(Cursor cursor) {
+        if (cursor != null) {
+            if (cursor.moveToFirst()) {
+                String str;
+                do {
+                    str = "";
+                    for (String cn : cursor.getColumnNames()) {
+                        str = str.concat(cn + " = " + cursor.getString(cursor.getColumnIndex(cn)) + "; ");
+                    }
+                    Log.d("tabla", str);
+                } while (cursor.moveToNext());
             }
-            Log.d("aye","1");
-            for(String s:aye){
-                Log.d("aye",s);
-            }
-            //arrQ = new HashSet<>(aye);
-
-
-        }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        save();
+        } else Log.d("tabla", "Cursor is null");
     }
-    void save(){
-        sp = getPreferences(MODE_PRIVATE);
-        SharedPreferences.Editor ed=sp.edit();
-        ed.putStringSet("arr",arrQ);
-        ed.apply();
-        Toast.makeText(this,"sohri",Toast.LENGTH_LONG).show();
-        try{
-            for(String s:arrQ){
-                Log.d("aye2",s);
-            }
-        }catch (NullPointerException e){
-        }
-    }
+
 }
