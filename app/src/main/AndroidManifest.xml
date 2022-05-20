@@ -20,6 +20,7 @@
         <activity android:name=".Construktor" />
         <activity android:name=".Consturktor2" />
         <activity android:name=".ListTest" />
+        <activity android:name=".Construktor3"/>
 
 
     </application>

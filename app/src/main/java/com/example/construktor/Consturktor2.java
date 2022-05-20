@@ -182,7 +182,7 @@ public class Consturktor2 extends AppCompatActivity implements View.OnClickListe
             cur.moveToFirst();
             int idVop = cur.getColumnIndex(DataBase.textQues);
             tx2.setText(cur.getString(idVop));
-            String query4 ="select TablOtv.ans, TablOtv.TrueFalse from TablOtv where TablOtv.Id = ? and TablOtv.qId = ? and TablOtv.ansId = ?";
+            query ="select TablOtv.ans, TablOtv.TrueFalse from TablOtv where TablOtv.Id = ? and TablOtv.qId = ? and TablOtv.ansId = ?";
 
             for(int i =1;i<=4;i++){
                 cur = dbhelper.rawQuery(query,new String[]{currTest,String.valueOf(currQues),String.valueOf(i)});

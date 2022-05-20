@@ -1,0 +1,159 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/back3"
+    android:gravity="center"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:id="@+id/nomerVop"
+        android:layout_width="54dp"
+        android:layout_height="39dp"
+        android:layout_marginTop="-30dp"
+        android:text=""
+        android:textColor="@color/white"
+        android:textSize="25dp" />
+
+    <EditText
+        android:id="@+id/vopros3"
+        android:layout_width="307dp"
+        android:layout_height="92dp"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:hint="@string/otveti"
+        android:textColorHint="@color/white"
+        android:textSize="25dp"
+        />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="-25dp"
+        android:layout_marginTop="80dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RadioGroup
+                android:id="@+id/rGroup2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                >
+
+                <RadioButton
+                    android:id="@+id/krujok"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@drawable/rgroup_style"
+                    android:checked="true"
+                    />
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="47dp"/>
+
+                <RadioButton
+                    android:id="@+id/krujok2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@drawable/rgroup_style" />
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="47dp"/>
+
+                <RadioButton
+                    android:id="@+id/krujok3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@drawable/rgroup_style" />
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="47dp"/>
+
+                <RadioButton
+                    android:id="@+id/krujok4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@drawable/rgroup_style" />
+            </RadioGroup>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/otv1"
+                android:layout_width="260dp"
+                android:layout_height="45dp"
+                android:gravity="center"
+                android:hint="@string/voprosi"
+                android:inputType="textPersonName"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white"
+                />
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"/>
+
+            <EditText
+                android:id="@+id/otv2"
+                android:layout_width="260dp"
+                android:layout_height="45dp"
+                android:gravity="center"
+                android:hint="@string/voprosi"
+                android:inputType="textPersonName"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white" />
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"/>
+
+            <EditText
+                android:id="@+id/otv3"
+                android:layout_width="260dp"
+                android:layout_height="45dp"
+                android:gravity="center"
+                android:hint="@string/voprosi"
+                android:inputType="textPersonName"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white" />
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"/>
+
+            <EditText
+                android:id="@+id/otv4"
+                android:layout_width="260dp"
+                android:layout_height="45dp"
+                android:gravity="center"
+                android:hint="@string/voprosi"
+                android:inputType="textPersonName"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/Con3btn"
+        android:layout_width="121dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="50dp"
+        android:background="@color/png"
+        android:foreground="@drawable/btn_press"
+        android:gravity="center"
+        android:onClick="onClick"
+        android:text="@string/next"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white" />
+
+</LinearLayout>

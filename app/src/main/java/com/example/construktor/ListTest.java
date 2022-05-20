@@ -108,6 +108,19 @@ public class ListTest extends AppCompatActivity implements View.OnClickListener 
         cur2.close();
         startActivity(inte2);
     }
+    public void btnUpdate(View v){
+        final int position = ls.getPositionForView((View) v.getParent());
+        String tablica = (String) ls.getItemAtPosition(position);
+        String query3  = "select TablNazv.Id from TablNazv where TablNazv.nameTest = ?";
+        Cursor cur3 = dphelp.rawQuery(query3,new String[]{tablica});
+        cur3.moveToFirst();
+        int idTest = cur3.getColumnIndex(DataBase.ID);
+        String id = String.valueOf(cur3.getInt(idTest));
+        Intent inte3 = new Intent(this,Construktor3.class);
+        inte3.putExtra("id",id);
+        cur3.close();
+        startActivity(inte3);
+    }
 
     @Override
     public void onClick(View v) {

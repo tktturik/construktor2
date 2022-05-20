@@ -55,7 +55,23 @@
             android:foreground="@drawable/btn_press"
             android:textColor="@color/white"
             android:textColorHint="@color/png"
-            app:backgroundTint="@color/png"
+            app:iconTint="@color/png"/>
+        <Space
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            />
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:onClick="btnUpdate"
+            android:text="redakt"
+            android:textSize="15dp"
+            android:background="@drawable/btn_press"
+            android:foreground="@drawable/btn_press"
+            android:textColor="@color/white"
+            android:textColorHint="@color/png"
             app:iconTint="@color/png"
 
             />
