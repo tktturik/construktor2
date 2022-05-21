@@ -13,5 +13,7 @@
     <string name="kolvop">кол-во вопросов</string>
     <string name="nazvanietablici">название теста</string>
     <string name="time">время в секундах</string>
+    <string name="update">обновить</string>
+    <string name="save">сохранить</string>
 
 </resources>

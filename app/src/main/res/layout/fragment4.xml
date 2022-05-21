@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/dialogfon"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/png"
+    android:divider="@color/png"
+    android:foreground="@color/png"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:scaleType="centerCrop">
+
+
+    <Button
+        android:id="@+id/save"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_press"
+        android:foreground="@drawable/btn_press"
+        android:text="@string/save"
+        android:textColor="@color/white"
+        app:backgroundTint="@color/png"
+        />
+
+
+</LinearLayout>

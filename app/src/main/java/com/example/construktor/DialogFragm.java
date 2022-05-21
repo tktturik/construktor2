@@ -51,13 +51,17 @@ public class DialogFragm  extends DialogFragment implements View.OnClickListener
                 int idNazv = cur.getColumnIndex(DataBase.NameTest);
                 title = cur.getString(idNazv);
                 cur.close();
-
                 ans=String.format("%.1f",((correct/n2)*100));
                 corrAns.setText("Правиьных ответов"+" "+String.valueOf((int)(correct))+"/"+String.valueOf(n2));
                 txTitle.setText(title);
                 procCorrAns.setText(ans+"%");
                 correct=0;
                 return v3;
+            case 4:
+                View v4 = inflater.inflate(R.layout.fragment4,null);
+                getDialog().getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+                v4.findViewById(R.id.save).setOnClickListener(this);
+                return v4;
         }
        return null;
     }
@@ -80,6 +84,10 @@ public class DialogFragm  extends DialogFragment implements View.OnClickListener
             case R.id.btnOK:
                 Intent inte3 = new Intent(getContext(), MainActivity.class);
                 startActivity(inte3);
+                break;
+            case R.id.save:
+                Intent inte4 = new Intent(getContext(), MainActivity.class);
+                startActivity(inte4);
                 break;
 
 

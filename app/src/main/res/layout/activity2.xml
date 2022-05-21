@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    android:background="@drawable/back5">
+    android:background="@drawable/back6">
 
     <ImageView
         android:id="@+id/imageView2"
@@ -25,7 +25,7 @@
         android:textColor="@color/white"
         android:hint="@string/time"
         android:inputType="number"
-        android:textSize="20dp"
+        android:textSize="25dp"
         android:gravity="center"
         />
     <Space
@@ -40,7 +40,7 @@
         android:textColor="@color/white"
         android:hint="@string/kolvop"
         android:inputType="number"
-        android:textSize="20dp"
+        android:textSize="25dp"
         android:gravity="center"
         />
 
@@ -54,7 +54,7 @@
         android:layout_height="wrap_content"
         android:textColor="@color/white"
         android:ems="10"
-        android:textSize="20dp"
+        android:textSize="25dp"
         android:textColorHint="@color/white"
         android:hint="@string/nazvanietablici"
         android:inputType="text"
@@ -72,6 +72,7 @@
         android:layout_gravity="center"
         android:background="@drawable/btn_press"
         android:foreground="@drawable/btn_press"
+        android:textSize="20dp"
         android:text="@string/start"
         android:textColor="@color/white"
         android:textColorHint="@color/png" />

@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/back3"
+    android:background="@drawable/back6"
     >
 
     <LinearLayout
@@ -36,8 +36,12 @@
     <ListView
         android:id="@+id/list"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_marginBottom="40dp">
 
     </ListView>
+
+
+
 
 </LinearLayout>

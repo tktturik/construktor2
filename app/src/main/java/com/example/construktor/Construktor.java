@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -29,8 +30,8 @@ public class Construktor extends AppCompatActivity implements View.OnClickListen
     private Integer qId=1,box1=0,box2=0,box3=0,box4=0,n,time;
     static  Integer idTest;
     static String a1,a2,a3,a4,vop,DataBaseName;
-    RadioGroup rb1;
     Button b1;
+    CheckBox cb1,cb2,cb3,cb4;
     DialogFragment df;
     SQLiteDatabase dbhelp;
 
@@ -43,14 +44,16 @@ public class Construktor extends AppCompatActivity implements View.OnClickListen
         Window w = getWindow();
         w.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         DF_VERSION=1;
-
+        cb1=findViewById(R.id.radioButton);
+        cb2=findViewById(R.id.radioButton2);
+        cb3=findViewById(R.id.radioButton3);
+        cb4=findViewById(R.id.radioButton4);
         tx=findViewById(R.id.textView);
         vopros = findViewById(R.id.vopros);
         ans1 = findViewById(R.id.otvet1);
         ans2 = findViewById(R.id.otvet2);
         ans3 = findViewById(R.id.otvet3);
         ans4 = findViewById(R.id.otvet4);
-        rb1=findViewById(R.id.rGroup);
         b1 = findViewById(R.id.button4);
 
         DataBaseName=(getIntent().getExtras()).getString("nazv");
@@ -66,20 +69,24 @@ public class Construktor extends AppCompatActivity implements View.OnClickListen
     }
     @Override
     public void onClick(View v) {
-        switch (rb1.getCheckedRadioButtonId()){
-            case R.id.radioButton:
-                box1=1;
-                break;
-            case R.id.radioButton2:
-                box2=1;
-                break;
-            case R.id.radioButton3:
-                box3=1;
-                break;
-            case R.id.radioButton4:
-                box4=1;
-                break;
-        }
+        if (cb1.isChecked()) {
+            box1=1;
+        }else box1=0;
+
+        if (cb2.isChecked()) {
+            box2=1;
+        }else box2=0;
+
+        if (cb3.isChecked()) {
+            box3=1;
+        }else box3=0;
+
+        if (cb4.isChecked()) {
+            box4=1;
+        }else box4=0;
+
+
+
         a1 = ans1.getText().toString();
         a2 = ans2.getText().toString();
         a3 = ans3.getText().toString();

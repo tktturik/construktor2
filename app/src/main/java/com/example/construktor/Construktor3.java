@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -27,8 +28,8 @@ public class Construktor3 extends AppCompatActivity implements View.OnClickListe
     Button upDateBtn;
     EditText ed1, ed2, ed3, ed4, edVop;
     TextView nomerVop;
-    RadioGroup radioGroup2;
-    RadioButton rb1, rb2, rb3, rb4;
+
+    CheckBox rb1, rb2, rb3, rb4;
     SQLiteDatabase dbhelp;
     Cursor cur;
     String currTest, red1, red2, red3, red4, redvop;
@@ -54,7 +55,6 @@ public class Construktor3 extends AppCompatActivity implements View.OnClickListe
         rb3 = findViewById(R.id.krujok3);
         rb4 = findViewById(R.id.krujok4);
         edVop = findViewById(R.id.vopros3);
-        radioGroup2 = findViewById(R.id.rGroup2);
         nomerVop = findViewById(R.id.nomerVop);
 
         currTest = (getIntent().getExtras()).getString("id");
@@ -67,7 +67,7 @@ public class Construktor3 extends AppCompatActivity implements View.OnClickListe
         nomerVop.setText(String.valueOf(currQues) + "/" + String.valueOf(n3));
         loadText(currTest, currQues);
         df = new DialogFragm();
-        DF_VERSION=2;
+        DF_VERSION=4;
 
 
     }
@@ -172,21 +172,19 @@ public class Construktor3 extends AppCompatActivity implements View.OnClickListe
         red3 = ed3.getText().toString();
         red4 = ed4.getText().toString();
         redvop = edVop.getText().toString();
-        switch (radioGroup2.getCheckedRadioButtonId()) {
-            case R.id.krujok:
-                box1 = 1;
-                break;
-            case R.id.krujok2:
-                box2 = 1;
-                break;
-            case R.id.krujok3:
-                box3 = 1;
-                break;
-            case R.id.krujok4:
-                box4 = 1;
-                break;
+        if (rb1.isChecked()) {
+            box1=1;
+        }else box1=0;
+        if (rb2.isChecked()) {
+            box2=1;
+        }else box2=0;
+        if (rb3.isChecked()) {
+            box3=1;
+        }else box3=0;
+        if (rb4.isChecked()) {
+            box4=1;
+        }else box4=0;
 
-        }
         c.put(DataBase.textQues, redvop);
         dbhelp.update(DataBase.DATABASE_QUES, c, "Id = ? and qId = ? ", new String[]{currTest, String.valueOf(currQues)});
         c.clear();

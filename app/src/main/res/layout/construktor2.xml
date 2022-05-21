@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:background="@drawable/back5"
+    android:background="@drawable/back6"
     android:gravity="center">
 
     <TextView
@@ -38,7 +38,8 @@
         android:textColor="@color/white"
         android:layout_marginTop="30dp"
         android:background="@drawable/txstyle"
-        android:layout_gravity="center" />
+        android:layout_gravity="center"
+        android:textSize="25dp"/>
 
 
     <TextView
@@ -46,10 +47,11 @@
         android:id="@+id/ans1"
         android:layout_width="260dp"
         android:layout_height="55dp"
-        android:background="@drawable/txstyle"
+        android:background="@drawable/txpressstyle"
         android:gravity="center"
         android:onClick="onClick"
         android:textColor="@color/white"
+        android:textSize="20dp"
       />
     <Space
         android:layout_width="match_parent"
@@ -60,10 +62,11 @@
         android:layout_width="260dp"
         android:layout_height="55dp"
 
-        android:background="@drawable/txstyle"
+        android:background="@drawable/txpressstyle"
         android:gravity="center"
         android:textColor="@color/white"
-        android:onClick="onClick" />
+        android:onClick="onClick"
+        android:textSize="20dp"/>
     <Space
         android:layout_width="match_parent"
         android:layout_height="50dp" />
@@ -72,9 +75,10 @@
         android:layout_width="260dp"
         android:layout_height="55dp"
         android:textColor="@color/white"
-        android:background="@drawable/txstyle"
+        android:background="@drawable/txpressstyle"
         android:gravity="center"
-        android:onClick="onClick" />
+        android:onClick="onClick"
+        android:textSize="20dp"/>
     <Space
         android:layout_width="match_parent"
         android:layout_height="50dp" />
@@ -84,9 +88,10 @@
         android:layout_width="260dp"
         android:layout_height="55dp"
         android:textColor="@color/white"
-        android:background="@drawable/txstyle"
+        android:background="@drawable/txpressstyle"
         android:gravity="center"
-        android:onClick="onClick" />
+        android:onClick="onClick"
+        android:textSize="20dp"/>
 
 
 </LinearLayout>

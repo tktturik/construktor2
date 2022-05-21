@@ -103,9 +103,9 @@ public class ListTest extends AppCompatActivity implements View.OnClickListener 
         cur2.moveToFirst();
         int idTest = cur2.getColumnIndex(DataBase.ID);
         String id = String.valueOf(cur2.getInt(idTest));
+        cur2.close();
         Intent inte2 = new Intent(this,Consturktor2.class);
         inte2.putExtra("id",id);
-        cur2.close();
         startActivity(inte2);
     }
     public void btnUpdate(View v){
@@ -116,9 +116,9 @@ public class ListTest extends AppCompatActivity implements View.OnClickListener 
         cur3.moveToFirst();
         int idTest = cur3.getColumnIndex(DataBase.ID);
         String id = String.valueOf(cur3.getInt(idTest));
+        cur3.close();
         Intent inte3 = new Intent(this,Construktor3.class);
         inte3.putExtra("id",id);
-        cur3.close();
         startActivity(inte3);
     }
 

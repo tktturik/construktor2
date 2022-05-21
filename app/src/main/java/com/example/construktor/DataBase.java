@@ -22,7 +22,7 @@ public class DataBase extends SQLiteOpenHelper {
     public static final String time="time";
 
     public DataBase(@Nullable Context context, int version) {
-        super(context, null,null, version);
+        super(context, "db",null, version);
 
     }
 
