@@ -72,7 +72,6 @@ public class Activity2 extends AppCompatActivity implements View.OnClickListener
             sec = Integer.parseInt(time.getText().toString());
             SQLiteDatabase dbhelp = db.getWritableDatabase();
             ContentValues c = new ContentValues();
-            c.clear();
             c.put(DataBase.NameTest,nazvanie);
             c.put(DataBase.time,sec);
             c.put(DataBase.nvop,kolQ);
