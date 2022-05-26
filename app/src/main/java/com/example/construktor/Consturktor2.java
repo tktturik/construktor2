@@ -1,12 +1,10 @@
  package com.example.construktor;
 
 
-import android.annotation.SuppressLint;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -62,7 +60,6 @@ public class Consturktor2 extends AppCompatActivity implements View.OnClickListe
         dbhelper = db.getReadableDatabase();
         query = "select TablNazv.time, TablNazv.kolQ from TablNazv where TablNazv.Id = ?";
         cur = dbhelper.rawQuery(query,new String[]{currTest});
-        logCursor(cur);
         cur.moveToFirst();
         int idN2 = cur.getColumnIndex(DataBase.nvop);
         int idSec = cur.getColumnIndex(DataBase.time);
@@ -76,12 +73,11 @@ public class Consturktor2 extends AppCompatActivity implements View.OnClickListe
         cur.moveToFirst();
         int idVop = cur.getColumnIndex(DataBase.textQues);
         tx2.setText(cur.getString(idVop));
-       
         query ="select TablOtv.ans, TablOtv.TrueFalse from TablOtv where TablOtv.Id = ? and TablOtv.qId = ? and TablOtv.ansId = ?";
         
         for(int i =1;i<=4;i++){
             cur = dbhelper.rawQuery(query,new String[]{currTest,String.valueOf(currQues),String.valueOf(i)});
-            logCursor(cur);
+
             switch (i){
                 case 1:
                     cur.moveToFirst();
@@ -186,7 +182,7 @@ public class Consturktor2 extends AppCompatActivity implements View.OnClickListe
 
             for(int i =1;i<=4;i++){
                 cur = dbhelper.rawQuery(query,new String[]{currTest,String.valueOf(currQues),String.valueOf(i)});
-                logCursor(cur);
+
                 switch (i){
                     case 1:
                         cur.moveToFirst();
@@ -249,21 +245,7 @@ public class Consturktor2 extends AppCompatActivity implements View.OnClickListe
 
 
         }
-    @SuppressLint("Range")
-    void logCursor(Cursor cursor) {
-        if (cursor != null) {
-            if (cursor.moveToFirst()) {
-                String str;
-                do {
-                    str = "";
-                    for (String cn : cursor.getColumnNames()) {
-                        str = str.concat(cn + " = " + cursor.getString(cursor.getColumnIndex(cn)) + "; ");
-                    }
-                    Log.d("tabla2", str);
-                } while (cursor.moveToNext());
-            }
-        } else Log.d("tabla", "Cursor is null");
-    }
+
     }
 
 

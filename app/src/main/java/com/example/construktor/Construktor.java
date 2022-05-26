@@ -1,6 +1,5 @@
 package com.example.construktor;
 
-import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -99,7 +98,6 @@ public class Construktor extends AppCompatActivity implements View.OnClickListen
                 String zapros = "select TablNazv.Id from TablNazv where TablNazv.nameTest = ?";
                 Log.d("tabla",DataBaseName);
                 Cursor cur = dbhelp.rawQuery(zapros, new String[]{DataBaseName});
-                logCursor(cur);
                 cur.moveToFirst();
                 int idA = cur.getColumnIndex(DataBase.ID);
                 Log.d("tabla",idA+" ");
@@ -157,22 +155,6 @@ public class Construktor extends AppCompatActivity implements View.OnClickListen
             tx.setText(String.valueOf(qId)+"/"+String.valueOf(n));
 
             if (qId> n) {
-
-                Log.d("tabla","TABLICA TablNazv");
-                Cursor cur = dbhelp.query(DataBase.DATABASE_NAME,null,null,null,null,null,null,null);
-                logCursor(cur);
-                cur.close();
-                Log.d("tabla","TABLICA TabOtv");
-                Cursor curos = dbhelp.query(DataBase.DATABASE_ANS,null,null,null,null,null,null);
-                logCursor(curos);
-                curos.close();
-                Log.d("tabla","------------");
-                Log.d("tabla","TABLICA TabVop");
-                Cursor curos2 = dbhelp.query(DataBase.DATABASE_QUES,null,null,null,null,null,null);
-                logCursor(curos2);
-                curos2.close();
-                Log.d("tabla","----------");
-
                 qId--;
                 DF_VERSION=2;
                 df.show(getSupportFragmentManager(),"df");
@@ -190,22 +172,4 @@ public class Construktor extends AppCompatActivity implements View.OnClickListen
         vopros.setText(s);
 
     }
-
-    @SuppressLint("Range")
-    void logCursor(Cursor cursor) {
-        if (cursor != null) {
-            if (cursor.moveToFirst()) {
-                String str;
-                do {
-                    str = "";
-                    for (String cn : cursor.getColumnNames()) {
-                        str = str.concat(cn + " = " + cursor.getString(cursor.getColumnIndex(cn)) + "; ");
-                    }
-                    Log.d("tabla", str);
-                } while (cursor.moveToNext());
-            }
-        } else Log.d("tabla", "Cursor is null");
-    }
-
-
 }

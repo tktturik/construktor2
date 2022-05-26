@@ -1,6 +1,5 @@
 package com.example.construktor;
 
-import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -60,7 +59,6 @@ public class Construktor3 extends AppCompatActivity implements View.OnClickListe
         currTest = (getIntent().getExtras()).getString("id");
         dbhelp = db.getWritableDatabase();
         cur = dbhelp.rawQuery("select TablNazv.kolQ from TablNazv where TablNazv.Id = ?", new String[]{currTest});
-        logCursor(cur);
         cur.moveToFirst();
         int idKolQ = cur.getColumnIndex(DataBase.nvop);
         n3 = cur.getInt(idKolQ);
@@ -91,21 +89,7 @@ public class Construktor3 extends AppCompatActivity implements View.OnClickListe
 
     }
 
-    @SuppressLint("Range")
-    void logCursor(Cursor cursor) {
-        if (cursor != null) {
-            if (cursor.moveToFirst()) {
-                String str;
-                do {
-                    str = "";
-                    for (String cn : cursor.getColumnNames()) {
-                        str = str.concat(cn + " = " + cursor.getString(cursor.getColumnIndex(cn)) + "; ");
-                    }
-                    Log.d("tabla", str);
-                } while (cursor.moveToNext());
-            }
-        } else Log.d("tabla", "Cursor is null");
-    }
+
 
     void loadText(String idTest, int currQues) {
         String query = "select TablVop.ques from TablVop where TablVop.Id = ? and TablVop.qId = ?";

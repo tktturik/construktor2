@@ -1,6 +1,5 @@
 package com.example.construktor;
 
-import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
@@ -25,6 +24,7 @@ public class Activity2 extends AppCompatActivity implements View.OnClickListener
     boolean b1=false,b2=false,b3=false;
     String nazvanie;
     static DataBase db;
+    Cursor cur;
 
 
 
@@ -76,23 +76,6 @@ public class Activity2 extends AppCompatActivity implements View.OnClickListener
             c.put(DataBase.time,sec);
             c.put(DataBase.nvop,kolQ);
             dbhelp.insert(DataBase.DATABASE_NAME,null,c);
-            Log.d("tabla1","TABLICA TablNazv");
-            Cursor cur = dbhelp.query(DataBase.DATABASE_NAME,null,null,null,null,null,null,null);
-            logCursor(cur);
-            Log.d("tabla1","------------");
-            Log.d("tabla1","TABLICA TabOtv");
-            cur= dbhelp.query(DataBase.DATABASE_ANS,null,null,null,null,null,null);
-            logCursor(cur);
-
-            Log.d("tabla1","------------");
-            Log.d("tabla1","TABLICA TabVop");
-            cur= dbhelp.query(DataBase.DATABASE_QUES,null,null,null,null,null,null);
-            logCursor(cur);
-
-            Log.d("tabla1","----------");
-
-
-
 
             try {
                 cur = dbhelp.rawQuery("select * from TablNazv where nameTest = ?",new String[]{nazvanie});
@@ -124,22 +107,6 @@ public class Activity2 extends AppCompatActivity implements View.OnClickListener
 
         }
     }
-    @SuppressLint("Range")
-    void logCursor(Cursor cursor) {
-        if (cursor != null) {
-            if (cursor.moveToFirst()) {
-                String str;
-                do {
-                    str = "";
-                    for (String cn : cursor.getColumnNames()) {
-                        str = str.concat(cn + " = " + cursor.getString(cursor.getColumnIndex(cn)) + "; ");
-                    }
-                    Log.d("tabla", str);
-                } while (cursor.moveToNext());
-            }
-        } else Log.d("tabla", "Cursor is null");
-    }
-
 
 }
 

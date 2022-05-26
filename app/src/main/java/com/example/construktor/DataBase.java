@@ -33,8 +33,12 @@ public class DataBase extends SQLiteOpenHelper {
                     NameTest + " text,"+
                     time +" integer,"
                     + nvop +" integer" +")");
-        db.execSQL("create table " + DATABASE_QUES + "(" + ID + " integer,"+ qId + " integer,"+ textQues +" text" +")");
-        db.execSQL("create table " + DATABASE_ANS + "(" + ID + " integer,"+ qId + " integer,"+ ansId + " integer,"+ textAns +" text,"+ true_false +" integer" +")");
+        db.execSQL("create table " + DATABASE_QUES + "(" +
+                ID + " integer,"+ qId + " integer,"+
+                textQues +" text" +")");
+        db.execSQL("create table " + DATABASE_ANS + "(" +
+                ID + " integer,"+ qId + " integer,"+ ansId + " integer,"
+                + textAns +" text,"+ true_false +" integer" +")");
 
     }
 

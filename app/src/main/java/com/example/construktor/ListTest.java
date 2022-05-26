@@ -1,11 +1,9 @@
 package com.example.construktor;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -44,7 +42,6 @@ public class ListTest extends AppCompatActivity implements View.OnClickListener 
         dphelp = db.getReadableDatabase();
         String query = "select TablNazv.nameTest from TablNazv";
         Cursor cur = dphelp.rawQuery(query, null);
-        logCursor(cur);
         cur.moveToFirst();
 
         try {
@@ -80,17 +77,9 @@ public class ListTest extends AppCompatActivity implements View.OnClickListener 
         cur.moveToFirst();
         int idDelet = cur.getColumnIndex(DataBase.ID);
         int idDeleti = cur.getInt(idDelet);
-
         dphelp.delete(DataBase.DATABASE_NAME,"Id = " + String.valueOf(idDeleti),null);
         dphelp.delete(DataBase.DATABASE_QUES, "Id = " + String.valueOf(idDeleti),null);
         dphelp.delete(DataBase.DATABASE_ANS, "Id = "+String.valueOf(idDeleti),null);
-        cur = dphelp.rawQuery("select * from TablNazv",null);
-        logCursor(cur);
-        cur= dphelp.rawQuery("select * from TablVop",null);
-        logCursor( cur);
-        cur = dphelp.rawQuery("select * from TablOtv",null);
-        logCursor(cur);
-        cur.close();
         ad.remove(ad.getItem(position));
         nazvaniya.remove(tablica);
         ad.notifyDataSetChanged();
@@ -130,20 +119,6 @@ public class ListTest extends AppCompatActivity implements View.OnClickListener 
             }
         }
 
-    @SuppressLint("Range")
-    void logCursor(Cursor cursor) {
-        if (cursor != null) {
-            if (cursor.moveToFirst()) {
-                String str;
-                do {
-                    str = "";
-                    for (String cn : cursor.getColumnNames()) {
-                        str = str.concat(cn + " = " + cursor.getString(cursor.getColumnIndex(cn)) + "; ");
-                    }
-                    Log.d("tabla", str);
-                } while (cursor.moveToNext());
-            }
-        } else Log.d("tabla", "Cursor is null");
-    }
+
 }
 
